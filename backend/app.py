@@ -22,10 +22,6 @@ recommendedProgram = "NA"
 @app.route('/get-population', methods = ['GET', 'POST'])
 def recommend_program():
     if request.method == 'POST':
-        year = request.form.get('year')
-        rooms = request.form.get('rooms')
-        fulltime = request.form.get('fulltime')
-        partime = request.form.get('parttime')
         #Run here recommend program
         #import libraries
         import numpy as np
@@ -33,6 +29,11 @@ def recommend_program():
         from sklearn.model_selection import train_test_split
         from sklearn.linear_model import LinearRegression
         from sklearn.metrics import mean_squared_error
+
+        year = request.form.get('year')
+        rooms = request.form.get('rooms')
+        fulltime = request.form.get('fullTime')
+        parttime = request.form.get('partTime')
 
         DATA_CSV_FILE = pd.read_csv('population.csv')
         DATA_CSV_FILE.isnull().sum()
@@ -59,7 +60,7 @@ def recommend_program():
         lin_model = LinearRegression()
         lin_model.fit(X_train, Y_train)
 
-        predict_population = lin_model.predict([[2022, 70, 30, 20]])
+        predict_population = lin_model.predict([[year, rooms, fulltime, parttime]])
         predict_population = int(predict_population)
 
         return jsonify({"population":predict_population})
