@@ -8,6 +8,10 @@
  3. `pip install mysqlclient`
  4. `pip install flask-marshmallow`
  5. `pip install marshmallow-sqlalchemy`
+ 6. `pip install flask_cors`
+ 7. `pip install numpy`
+ 8. `pip install -U scikit-learn`
+ 9. `pip install pandas`
 
 ## Understanding the Repository
 ### Branches
