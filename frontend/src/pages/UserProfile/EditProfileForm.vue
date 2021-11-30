@@ -54,7 +54,7 @@
           class="btn btn-primary btn-fill float-right"
           @click.prevent="validatePredictProgram"
         >
-          Update Profile
+          Proceed
         </button>
       </div>
       <div class="clearfix"></div>
